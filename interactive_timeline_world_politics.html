@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Трансформация мировой политической системы — линия времени</title>
+<style>
+:root{--ink:#17243b;--muted:#66758d;--blue:#3159a5;--blue2:#eaf0ff;--gold:#f0b84b;--bg:#f4f7fc;--green:#16845b;--red:#c34d54}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#edf3ff,#f8faff 55%,#fff8e9);font-family:Arial,sans-serif;color:var(--ink);min-height:100vh;padding:24px}
+.wrap{max-width:1100px;margin:auto}
+header{background:#fff;border-radius:22px;padding:26px 30px;box-shadow:0 8px 28px #253b6412;border:1px solid #e7ecf5}
+.kicker{color:var(--blue);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+h1{font-size:clamp(25px,4vw,38px);margin:9px 0 8px;line-height:1.12}
+.sub{color:var(--muted);line-height:1.5;margin:0}
+.panel{background:#fff;border-radius:20px;padding:24px;margin-top:20px;box-shadow:0 8px 28px #253b6410;border:1px solid #e7ecf5}
+h2{font-size:20px;margin:0 0 8px}
+.hint{color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 22px}
+.timeline-scroll{overflow-x:auto;padding:14px 8px 12px}
+.timeline{min-width:760px;position:relative;display:grid;grid-template-columns:repeat(7,1fr);gap:8px;padding-top:12px}
+.timeline:before{content:"";position:absolute;top:37px;left:6%;right:6%;height:5px;background:linear-gradient(90deg,#8ca7dc,#3159a5);border-radius:9px}
+.slot{position:relative;z-index:1;text-align:center;min-width:0}
+.marker{width:48px;height:48px;border-radius:50%;margin:0 auto 12px;background:#fff;border:4px solid #8ca7dc;color:var(--blue);display:grid;place-items:center;font-weight:800;font-size:17px;box-shadow:0 3px 10px #253b6418}
+.drop{min-height:105px;border:2px dashed #cbd5e6;border-radius:13px;padding:9px 6px;background:#f9fbff;display:flex;align-items:center;justify-content:center;color:#8995a9;font-size:12px;line-height:1.3;transition:.15s}
+.drop.over{border-color:var(--blue);background:var(--blue2)}
+.drop.filled{border-style:solid;border-color:#9db2df;color:var(--ink);background:#f0f4ff;font-weight:700}
+.year{display:none;font-size:14px;font-weight:800;color:var(--blue);margin-top:8px}
+.revealed .year{display:block}
+.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:11px}
+.event{background:#fff;border:1px solid #dce4f1;border-left:5px solid var(--gold);border-radius:12px;padding:13px 14px;font-size:14px;line-height:1.4;cursor:grab;box-shadow:0 3px 10px #24385c0b;user-select:none;transition:.15s}
+.event:hover{transform:translateY(-2px);box-shadow:0 6px 14px #24385c16}
+.event.selected{outline:3px solid #8ca7dc;background:#f1f5ff}
+.event.dragging{opacity:.4}
+.event.used{opacity:.35;cursor:not-allowed}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+button{border:0;border-radius:12px;padding:13px 20px;font-weight:700;font-size:14px;cursor:pointer}
+.primary{background:var(--blue);color:#fff}.secondary{background:#edf1f8;color:#34445f}
+button:disabled{opacity:.45;cursor:not-allowed}
+#result{margin-top:16px;padding:14px 16px;border-radius:12px;display:none;line-height:1.5}
+#result.show{display:block}#result.good{background:#e9f7f0;color:#126344}#result.bad{background:#fff1ef;color:#963c40}
+.note{font-size:12px;color:#8792a5;margin-top:14px}
+@media(max-width:600px){body{padding:12px}.panel{padding:17px}.timeline{min-width:700px}header{padding:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="kicker">Интерактивное задание · История</div>
+ <h1>Трансформация мировой политической системы</h1>
+ <p class="sub">Расположите события на линии времени в правильной хронологической последовательности.</p>
+</header>
+<section class="panel">
+ <h2>1. Заполните линию времени</h2>
+ <p class="hint">Перетащите карточки с событиями на подходящие пронумерованные метки. На телефоне можно сначала нажать на карточку, а затем на нужную метку. Годы пока скрыты.</p>
+ <div class="timeline-scroll">
+  <div class="timeline" id="timeline">
+   <div class="slot"><div class="marker">1</div><div class="drop" data-slot="0">Перетащите событие сюда</div><div class="year"> </div></div>
+   <div class="slot"><div class="marker">2</div><div class="drop" data-slot="1">Перетащите событие сюда</div><div class="year"> </div></div>
+   <div class="slot"><div class="marker">3</div><div class="drop" data-slot="2">Перетащите событие сюда</div><div class="year"> </div></div>
+   <div class="slot"><div class="marker">4</div><div class="drop" data-slot="3">Перетащите событие сюда</div><div class="year"> </div></div>
+   <div class="slot"><div class="marker">5</div><div class="drop" data-slot="4">Перетащите событие сюда</div><div class="year"> </div></div>
+   <div class="slot"><div class="marker">6</div><div class="drop" data-slot="5">Перетащите событие сюда</div><div class="year"> </div></div>
+   <div class="slot"><div class="marker">7</div><div class="drop" data-slot="6">Перетащите событие сюда</div><div class="year"> </div></div>
+  </div>
+ </div>
+</section>
+<section class="panel">
+ <h2>2. События</h2>
+ <p class="hint">Карточки расположены в случайном порядке. Каждое событие можно использовать только один раз.</p>
+ <div class="events" id="events">
+  <div class="event" draggable="true" data-id="gorb">Приход М. С. Горбачёва к власти в СССР</div>
+  <div class="event" draggable="true" data-id="wall">Падение Берлинской стены</div>
+  <div class="event" draggable="true" data-id="nato">Создание НАТО</div>
+  <div class="event" draggable="true" data-id="cuba">Карибский кризис</div>
+  <div class="event" draggable="true" data-id="inf">Договор о ликвидации ракет средней и меньшей дальности между СССР и США</div>
+  <div class="event" draggable="true" data-id="warsaw">Создание Организации Варшавского договора (ОВД)</div>
+  <div class="event" draggable="true" data-id="collapse">Распад биполярной системы международных отношений</div>
+ </div>
+ <div class="controls">
+  <button class="primary" id="check">Проверить</button>
+  <button class="secondary" id="reset">Начать заново</button>
+ </div>
+ <div id="result" role="status" aria-live="polite"></div>
+ <div class="note">После нажатия «Проверить» появятся даты событий и результат выполнения.</div>
+</section>
+</div>
+<script>
+const answers=[
+ {id:"nato",year:"1949"},
+ {id:"warsaw",year:"1955"},
+ {id:"cuba",year:"1962"},
+ {id:"gorb",year:"1985"},
+ {id:"inf",year:"1987"},
+ {id:"wall",year:"1989"},
+ {id:"collapse",year:"1991"}
+];
+const names={nato:"Создание НАТО",warsaw:"Создание ОВД",cuba:"Карибский кризис",gorb:"Приход Горбачёва к власти",inf:"Договор о ликвидации ракет средней и меньшей дальности",wall:"Падение Берлинской стены",collapse:"Распад биполярной системы"};
+const events=document.getElementById('events'), drops=[...document.querySelectorAll('.drop')];
+let selected=null, placements=Array(7).fill(null), checked=false;
+function selectEvent(el){
+ if(el.classList.contains('used')||checked)return;
+ document.querySelectorAll('.event').forEach(x=>x.classList.remove('selected'));
+ selected=el;el.classList.add('selected');
+}
+function place(el,slot){
+ if(checked||!el||slot<0||slot>6)return;
+ const id=el.dataset.id;
+ // Remove this event from any previous slot.
+ placements=placements.map(x=>x===id?null:x);
+ const previous=placements[slot];
+ if(previous){const old=events.querySelector(`[data-id="${previous}"]`);old.classList.remove('used');old.draggable=true;}
+ placements[slot]=id;
+ render();
+}
+function render(){
+ drops.forEach((d,i)=>{
+  const id=placements[i];d.textContent=id?names[id]:"Перетащите событие сюда";
+  d.classList.toggle('filled',!!id);
+  const yr=d.parentElement.querySelector('.year');yr.textContent=checked?answers.find(a=>a.id===id)?.year||"—":"";
+ });
+ document.querySelectorAll('.event').forEach(el=>{
+  const used=placements.includes(el.dataset.id);
+  el.classList.toggle('used',used);el.draggable=!used&&!checked;
+  el.classList.remove('selected');
+ });
+ selected=null;
+}
+document.querySelectorAll('.event').forEach(el=>{
+ el.addEventListener('click',()=>selectEvent(el));
+ el.addEventListener('dragstart',e=>{if(el.classList.contains('used')||checked){e.preventDefault();return;}e.dataTransfer.setData('text/plain',el.dataset.id);el.classList.add('dragging');});
+ el.addEventListener('dragend',()=>el.classList.remove('dragging'));
+});
+drops.forEach(d=>{
+ d.addEventListener('dragover',e=>{if(!checked){e.preventDefault();d.classList.add('over');}});
+ d.addEventListener('dragleave',()=>d.classList.remove('over'));
+ d.addEventListener('drop',e=>{e.preventDefault();d.classList.remove('over');if(checked)return;const id=e.dataTransfer.getData('text/plain');const el=events.querySelector(`[data-id="${id}"]`);if(el)place(el,Number(d.dataset.slot));});
+ d.addEventListener('click',()=>{if(selected)place(selected,Number(d.dataset.slot));});
+});
+document.getElementById('check').addEventListener('click',()=>{
+ if(placements.some(x=>!x)){const r=document.getElementById('result');r.className='show bad';r.textContent='Сначала разместите все 7 событий на линии времени.';return;}
+ checked=true;document.getElementById('timeline').classList.add('revealed');render();
+ let score=0;
+ placements.forEach((id,i)=>{if(id===answers[i].id)score++;});
+ const r=document.getElementById('result');r.className='show '+(score===7?'good':'bad');
+ r.innerHTML=score===7?`Отлично! Все события расположены верно: <b>${score} из 7</b>.`:`Ваш результат: <b>${score} из 7</b>. Изучите даты на линии времени и попробуйте ещё раз.`;
+ document.getElementById('check').disabled=true;
+});
+document.getElementById('reset').addEventListener('click',()=>{
+ checked=false;placements=Array(7).fill(null);
+ document.getElementById('timeline').classList.remove('revealed');
+ document.getElementById('result').className='';document.getElementById('result').textContent='';
+ document.getElementById('check').disabled=false;render();
+});
+</script>
+</body>
+</html>
